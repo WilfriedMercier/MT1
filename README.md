@@ -1,6 +1,6 @@
 # TrouNoir
 
-##Compilation
+## Compilation
 La compilation néscéssite l'installation préalable de BLAS et LAPACK
 
 
