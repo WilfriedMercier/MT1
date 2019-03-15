@@ -1,0 +1,72 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[ portrait, margin = 0.7 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\title{Équations normalisées}
+\author{Valentin Nourry}
+\date{5 octobre 2018}
+
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Équations différentielles}
+Les équations pour la surface et la température sont :
+\begin{align}
+  \frac{\partial\Sigma}{\partial t} &= \frac{3}{r}\frac{\partial}{\partial r}\left[\sqrt{r}\frac{\partial}{\partial r}\left(\nu\Sigma \sqrt{r}\right)\right] \label{sigma}\\
+  C_V\frac{\partial T}{\partial t} &= Q^+ - Q^- + Q_{\text{adv}} \label{temperature}
+\end{align}
+La normalisation ne change pas la forme des équations. Par contre, on effectue les changements de variables suivants :
+\begin{align}
+  x &= \sqrt{\frac{r}{r_s}}\\
+  S &= \Sigma x
+\end{align}
+On obtient :
+\begin{align}
+  \frac{\partial S}{\partial t} &= \frac{3}{4r_s^2}\frac{1}{x^2}\frac{\partial^2}{\partial x^2}(\nu S)
+\end{align}
+L'adimensionnement est tel que :
+\begin{align}
+  t^* &= t \Omega_{\text{max}}\\
+  \nu^* &= \frac{\nu}{\Omega_{\text{max}}r_s^2} 
+\end{align}
+On obtient donc l'équation adimensionnée :
+\begin{align}
+  \frac{\partial S}{\partial t^*} &= \frac{3}{4x^2}\frac{\partial^2}{\partial x^2}\left(\nu^*S\right)
+\end{align}
+
+\section{Équations algébriques concernées par les changements}
+
+\begin{align}
+  Q_{\text{adv}} &= C_V\left[(\Gamma_3 - 1)\frac{T}{\Sigma}\left(\frac{\partial\Sigma}{\partial t} + v\frac{\partial \Sigma}{\partial r}\right) - v\frac{\partial T}{\partial r}\right]\label{Qadv-1}
+  \intertext{Ce qui donne après changement de variable,}
+  Q_{\text{adv}} &= C_V\left[(\Gamma_3 - 1)\frac{T}{S}\left(\frac{\partial S}{\partial t} + \frac{v}{2r_s}\frac{\partial S/x}{\partial x}\right) - \frac{v}{2r_sx}\frac{\partial T}{\partial x}\right]\label{Qadv-2}
+  \intertext{On peut remplacer la dérivée temporelle par une dérivée spatiale à l'aide de (\ref{sigma})}
+  Q_{\text{adv}} &= \frac{C_V}{2r_s}\left[(\Gamma_3 - 1)\frac{T}{S}\left(\frac{3}{2x^2}\frac{\partial^2(\nu S)}{\partial x^2} + v\frac{\partial S/x}{\partial x}\right) - \frac{v}{x}\frac{\partial T}{\partial x}\right]\label{Qadv-final}
+\end{align}
+
+
+\section{Condition au bord de Neuman}
+
+\begin{align}
+\frac{\partial S}{\partial t} &= \frac{3}{4x^2}\frac{\partial^2 (\nu S)}{\partial x^2} \\
+\frac{S^{i+1}_n-S^i_n}{dt} &= \frac{(\nu S)_{n+1}^{\prime i}-(\nu S)_{n}^{\prime i}}{dx} \\
+S^{i+1}_n &= S^i_n + \frac{dt}{2 dx^2} \left( \frac{dx\dot{M_0}}{3\pi} - \nu^i_n S^i_n + \nu^i_{n-1} S^i_{n-1}\right)
+\end{align}
+
+\section{Conditions aux bords}
+
+\paragraph {Au bord $x_\text{max}$}
+le taux d'accrétion est fixé et supposé constant
+\begin{align}
+  6\pi\sqrt{r}\frac{\partial}{\partial r}\left(\nu\Sigma\sqrt{r}\right) &= \dot{M_0}\\
+  \intertext{En effectuant les changements de variable précédents, on obtient,}
+  3\pi\frac{\partial}{\partial x}\left(\nu S\right) &= \dot{M_0}\\
+\end{align}
+\end{document}

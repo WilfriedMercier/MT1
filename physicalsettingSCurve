@@ -1,0 +1,9 @@
+&physicalsettingSCurve
+  mainConfFilename = "physicalsetting"
+  minSigma = 1e-2
+  maxSigma = 1e6
+  nSigma = 200
+  minTemperature = 1e5
+  maxTemperature = 1e8
+  nTemperature = 200
+/

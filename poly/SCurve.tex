@@ -1,0 +1,77 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[ portrait, margin = 0.7 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Courbe en S}
+\author{Wilfried Mercier}
+
+
+\begin{document}
+    \maketitle
+
+\section{Courbe en S}
+\subsection{Introduction}
+
+    L'évolution du disque d'accrétion nécessite de connaître avec précision l'ensemble des points du plan $(S,T)$ pour lesquels la température est stationnaire, c'est-à dire tel que l'équation suivante soit nulle
+    
+    \begin{equation}
+       C_V \frac{\partial T}{\partial t} = Q^+ - Q^-
+    \end{equation}
+    où on a négligé localement le terme d'advection. Les termes $Q^+ = Q^+ (\nu , \Omega)$ et $Q^- = Q^- (F_z , S , x)$ ne sont en réalité que fonctions de $S$ et $T$ à $x$ fixé. Ainsi, il est possible de déterminer les variations de $T$ en chaque point du plan $(S,T)$ pour tout rayon en utilisant les équations algébriques décrivant le disque d'accrétion.
+    
+\subsection{Dichotomie}
+    \subsubsection{Première méthode}
+        On cherche à déterminer les points stationnaires sur la courbe en S, ce qui revient à résoudre l'équation suivante
+        \begin{equation}
+            \delta Q (S, T) = Q^+ (S,T) - Q^- (S,T) = 0
+        \end{equation}
+        La manière la plus simple de trouver une seule solution à cette équation est de se placer initialement à une position $(S_0 , T_0)$ dans le plan et d'effectuer une dichotomie le long d'un des deux axes. Le premier problème est de déterminer bornes min/max sur lesquelles la dichotomie doit s'effectuer. \newline
+        Une solution proposée est de fixer arbitrairement un axe de dichotomie (disons $T$) ainsi qu'un pas $\Delta$, puis d'effectuer les manipulations suivantes :
+        \begin{itemize}
+            \item Calculer $\delta Q$ en $\mathbf{P^+_{\rm{down}}} = (S_0 , T_0)$ et $\mathbf{P^+_{\rm{up}}} = (S_0 , T_0 + \Delta)$
+        
+            \item Si $\delta Q (\mathbf{P^+_{\rm{down}}}) \delta Q (\mathbf{P^+_{\rm{up}}}) > 0$, calculer $\delta Q$ en $\mathbf{P^-_{\rm{down}}} = (S_0 , T_0 - \Delta)$ et $\mathbf{P^-_{\rm{up}}} = (S_0 , T_0)$
+        
+            \item Si $\delta Q (\mathbf{P^-_{\rm{down}}}) \delta Q (\mathbf{P^-_{\rm{up}}}) > 0$, translater les points $\mathbf{P^{\pm}}$ de $\pm \Delta$ et retourner à l'étape 1
+        \end{itemize}
+    
+        Cela a l'avantage de ne pas avoir à se préoccuper de la direction (positive/négative) dans laquelle se trouve potentiellement le zéro car les deux sont explorées.\newline
+        Cette procédure est stoppée dès que l'un des produits des $\delta Q$ devient négatif, ce qui nous donne les bornes à partir desquelles on peut effectuer la dichotomie. Cependant, il peut arriver, si $\Delta$ est trop grand ou très petit, que la procédure ne trouve pas de zéros en un temps raisonnable. Ainsi, on rajoute par mesure de précaution un nombre maximal d'itérations au-delà duquel on stoppe la recherche de l'intervalle.\newline
+        Le second problème à résoudre correspond aux zones de la courbe où la pente $\Delta T / \Delta S \xrightarrow{} 0 , \infty$. En effet, il est nécessaire de choisir la bonne dimension pour la dichotomie en ces points si l'on veut être sûr de trouver un zéro et de ne pas perdre en précision lors de l'échantillonnage. Un moyen simple de résoudre ce problème est d'effectuer la procédure suivante:
+    
+        \begin{itemize}
+            \item Si on effectue la dichotomie selon $T$ et que $\left | \Delta T / \Delta S \right | > 1$, on change la dimension de la dichotomie
+            \item De même si on est selon $S$ et que $\left | \Delta T / \Delta S \right | < 1$
+        \end{itemize}
+    
+        Une fois l'intervalle contenant le zéro trouvé, l'algorithme pour la dichotomie  est standard. On le stoppe dès qu'il converge à une certaine précision (de l'ordre de $10^-11 - 10^-13$ en adimensionné).
+        
+        \subsubsection{Seconde méthode}
+            Au lieu de partir d'un point arbitraire pour commencer la dichotomie, on peut réutiliser les résultats du \textit{meshgrid} pour déterminer directement les bornes d'un certains nombre d'intervalles dans lesquels se trouvent les zéros.
+        
+    \subsection{Construction de la courbe en S}
+        Connaissant la position $(S^{(0)} , T^{(0)})$ d'un premier zéro sur la courbe en S, il est possible de déterminer le prochain en se décalant d'un pas $\Delta_S$ ($\Delta_T$) si la dichotomie est effectuée selon $T$ ($S$).\newline
+        On peut alors réutiliser l'une des méthodes ci-dessus à partir de la nouvelle position pour trouver le prochain zéro.
+        En réitérant l'opération jusqu'à une température ou densité surfacique maximale on est en mesure de reconstruire la courbe en S.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+\end{document}

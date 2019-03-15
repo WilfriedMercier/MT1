@@ -1,0 +1,314 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[ portrait, margin = 0.7 in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\title{Adimensionnement maggle}
+\author{Jérémy Couturier, Wilfried Mercier}
+\date{5 octobre 2018}
+
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Variables adimensionnées}
+\subsection{Temps}
+    \begin{equation}
+        t^*=\frac{t}{\tau}\;\; \textrm{où} \;\;\tau=\left ( \frac{(3r_s)^3}{GM} \right)^{1/2} = \frac{1}{\Omega_{\rm{max}}}
+    \end{equation}
+
+\subsection{Distance}
+    \begin{equation}
+        x=\sqrt{\frac{r}{r_s}}
+    \end{equation}
+    
+\subsection{Viscosité cinématique}
+    \begin{equation}
+        \nu^*=\frac{\nu}{\nu^{'}}\;\; \textrm{où} \;\;\nu^{'}=\frac{4}{3}{r_s}^2\Omega_{max}
+    \end{equation}
+    
+\subsection{Demi-hauteur}
+    \begin{equation}
+        H^*=\frac{H}{r_s}
+    \end{equation}
+
+\subsection{Densité}
+    \begin{equation}
+        \rho^*=\frac{\rho}{\rho^{'}}\;\; \textrm{où} \;\;\rho^{'}=\frac{\dot{M}_0\tau}{{r_s}^3}
+    \end{equation}
+    
+\subsection{Vitesse d'accrétion}
+    \begin{equation}
+        v^* = \frac{v}{v^{'}}\;\; \textrm{où} \;\;v^{'} = 2 r_s \Omega_{\rm{max}}
+    \end{equation}
+    
+\subsection{Vitesse du son}
+    \begin{equation}
+        c_s^* = \frac{c_s}{v^{'}}
+    \end{equation}
+
+\subsection{Pression}
+    \begin{equation}
+        P^*=\frac{P}{P^{'}}\;\; \textrm{où} \;\;P^{'}=\rho^{'}{v^{'}}^2=\frac{4\dot{M}_0\Omega_{\rm{max}}}{r_s}
+    \end{equation}
+    
+\subsection{Taux d'accrétion}
+    \begin{equation}
+        \dot{M}^*=\frac{\dot{M}}{\dot{M}^{'}}\;\; \textrm{où} \;\;\dot{M}^{'}=\frac{\rho^{'}{r_s}^3}{\tau}=\dot{M}_0
+    \end{equation}
+    
+\subsection{Densité de surface}
+    \begin{equation}
+        S^* = \frac{S}{S^{'}} \;\; \textrm{où} \;\; S^{'} = \frac{\dot{M}_0}{r_s^2 \Omega_{\rm{max}}}
+    \end{equation}
+    
+\subsection{Terme de chauffage, refroidissement et advection}
+    \begin{equation}
+        (Q^{+})^* = \frac{Q^{+}}{(Q^{+})^{'}}\;\; \textrm{où} \;\; (Q^{+})^{'} = 3 r_s^2 \Omega_{\rm{max}}^3
+    \end{equation}
+    De même on a
+    \begin{equation}
+        (Q^-)^* = \frac{Q^-}{(Q^+)^{'}} \;\; \textrm{et} \;\; Q_{\rm{adv}}^* = \frac{Q_{\rm{adv}}}{(Q_+)^{'}}
+    \end{equation}
+    
+\subsection{Capacité calorifique à volume constant}
+    \begin{equation}
+        C_V^* = \frac{C_V}{C_V^{'}}\;\; \textrm{où} \;\; C_V^{'} = \mathcal{R}
+    \end{equation}
+    
+\subsection{Flux radiatif}
+    \begin{equation}
+      F_z^* =
+      \begin{cases}
+         \frac{F_z}{F_{z,1}^{'}} \;\; \textrm{où} \;\; F_{z,1}^{'} = 54 \dot{M_0} \Omega_{\rm{max}}^2 & \text{ si } \tau_{\rm{eff}}^* \geq 2/(\kappa_{ff}^{'} S^{'}) \\
+         \frac{F_z}{F_{z,2}^{'}} \;\; \textrm{où} \;\; F_{z,2}^{'} = \epsilon_{ff}^{'} r_s & \text{ si } \tau_{\rm{eff}}^* < 2/(\kappa_{ff}^{'} S^{'})
+      \end{cases}
+    \end{equation}
+    
+\subsection{Température}
+    \begin{equation}
+        T^*=\frac{T}{T^{'}}\;\; \textrm{où} \;\;T^{'}=\frac{3{r_s}^2\Omega_{\rm{max}}^2}{\mathcal{R}}
+    \end{equation}
+
+\subsection{Opacité free-free et Thomson}
+    \begin{equation}
+        \kappa_{ff}^* = \frac{\kappa_{ff}}{\kappa_{ff}^{'}}
+    \end{equation}
+    \begin{equation}
+        \kappa_{e}^* = \frac{\kappa_{e}}{\kappa_{ff}^{'}}
+    \end{equation}
+
+                                    où 
+    \begin{equation}
+        \kappa_{ff}^{'} = \frac{(r_s^2 \Omega_{\rm{max}})}{\dot{M_0}}
+    \end{equation}
+
+
+\subsection{Emissivité free-free}
+    \begin{equation}
+        \epsilon_{ff}^* = \frac{\epsilon_{ff}}{\epsilon_{ff}^{'}}
+    \end{equation}
+où $\epsilon_{ff}^{'} = 6.22 \times 10^{20} (\rho^{'})^2 (T^{'})^{1/2}=6.22 \times 10^{20}\;\;\frac{\sqrt{3}{\dot{M}_0}^2}{\Omega_{\rm{max}}{r_s}^5\sqrt{\mathcal{R}}}$.
+
+Attention : $6.22 \times 10^{20}$ a une dimension.
+
+\subsection{Profondeur optique effective}
+    Cette quantité est sans dimension
+    
+    $\rightarrow \; \tau_{eff}={\tau_{eff}}^*$
+    
+\section{Adimensionnement}
+
+\subsection{Vitesse angulaire (Eq.3)}
+    \begin{equation}\label{vitesse_angulaire}
+        \Omega^* = 3^{3/2} x^{-3}
+    \end{equation}
+    
+\subsection{Pression (Eq.5a et Eq.5b)}
+    \begin{equation}\label{pression_totale}
+        P^* = P_{\rm{gaz}}^* + P_{\rm{rad}}^*
+    \end{equation}
+    \begin{equation}\label{pression_gaz}
+        P_{\rm{gaz}}^* = \frac{3}{4} \frac{\rho^* T^*}{\mu}
+    \end{equation}
+    \begin{equation}\label{pression_rad}
+        P_{\rm{rad}}^* = C_1 (T^*)^4 \;\; \textrm{où} \;\; C_1 = \frac{a (T^{'})^4}{3 \rho^{'} (v^{'})^2} =  \frac{27}{4} \frac{a r_s^9 \Omega_{\rm{max}}^7}{\dot{M_0} \mathcal{R}^4}
+    \end{equation}
+    
+\subsection{Indicateur de pression (Eq.6)}
+    \begin{equation}\label{indicateur_de_pression}
+        \beta = \frac{P_{\rm{gaz}}^*}{P^*}
+    \end{equation}
+
+\subsection{Vitesse du son (Eq.7)}
+On a :
+\begin{equation}\label{vitesse_du_son}
+   v^{'}{c_s}^*=\sqrt{\frac{\rho^{'}{v^{'}}^2P^*}{\rho^{'}\rho^*}}\;\; \Rightarrow \;\;{c_s}^*=\sqrt{\frac{P^*}{\rho^*}}
+\end{equation}
+
+\subsection{Demie-hauteur du disque (Eq.8)}
+    \begin{equation}\label{demie_hauteur}
+        H^* = \frac{2 c_s^*}{\Omega^*}
+    \end{equation}
+    
+\subsection{Densité volumique (Eq.9)}
+    \begin{equation}\label{densite_volumique}
+        S^* = 2 \rho^* H^*
+    \end{equation}
+    
+\subsection{Viscosité (Eq.10)}
+    \begin{equation}\label{viscosite}
+        \nu^* = \alpha c_s^* H^*
+    \end{equation}
+    
+\subsection{La densité de surface $\Sigma$ (Eq.11)}
+On pose :
+\begin{equation}
+S=\Sigma x
+\end{equation}
+On obtient : 
+\begin{equation}
+\frac{\partial S}{\partial t^*}=\frac{3}{4}\frac{\nu^{'}}{\Omega_{max}x^2{r_s}^2}\frac{\partial^2}{\partial x^2}\nu^*S
+\end{equation}
+Qui se simplifie en :
+\begin{equation}
+\frac{\partial S}{\partial t^*}=\frac{1}{x^2}\frac{\partial^2}{\partial x^2}\nu^*S
+\end{equation}
+Il ne reste plus qu'à adimensionner $S$ :
+\begin{equation}
+S=\Sigma x=2Hx \left \langle \rho \right \rangle
+\end{equation}
+Donc : 
+\begin{equation}
+S^*=2H^*x \left \langle \rho^* \right \rangle
+\end{equation}
+D'où on en déduit
+\begin{equation}
+    S^* = \frac{S}{S^{'}} \;\; \textrm{où} \;\; S^{'} = \frac{\dot{M}_0}{r_s^2 \Omega_{\rm{max}}}
+\end{equation}
+L'équation adimensionnée pour la densité surfacique est finalement : 
+\begin{equation}\label{densite_surfacique}
+\frac{\partial S^*}{\partial t^*}=\frac{1}{x^2}\frac{\partial^2}{\partial x^2}(\nu^*S^*)
+\end{equation}
+
+La vitesse locale d'accrétion (équation (12) du poly) est donnée par :
+\begin{align}
+  v &= -\frac{3}{\Sigma\sqrt{r}}\frac{\partial}{\partial r}\left(\nu\Sigma\sqrt{r}\right)\\
+  \intertext{Donc l'expression du taux d'accrétion devient :}
+  \overset{.}{M} &= 6\pi\sqrt{r}\frac{\partial}{\partial r}\left(\nu\Sigma\sqrt{r}\right)\\
+  \intertext{On peut adimensionner cette équation, qui devient donc :}
+  \overset{.}{M} &= 2\pi\overset{.}{M_0}\frac{\partial}{\partial x}\left(\nu^{*} S^{*}\right)\\
+  \intertext{Si on évalue en $x=x_\text{max}$, on obtient l'adimensionnement de l'équation page 15 du poly}
+  \left.\frac{\partial}{\partial x}\left(\nu^{*} S^{*}\right)\right|_{x\text{max}} &= \frac{1}{ 2\pi}
+\end{align}
+
+\subsection{Vitesse d'accrétion (Eq.12)}
+    \begin{equation}\label{vitesse_accretion}
+        v^* = - \frac{1}{S x} \frac{\partial}{\partial x} (\nu^* S)
+    \end{equation}
+    
+\subsection{Taux d'accrétion (Eq.13)}
+    \begin{equation}\label{taux_accretion}
+        \dot{M}^*=-\frac{4\pi xS}{\rho^{'}r_s}v^* = - 4 \pi x S^* v^*
+    \end{equation}
+    
+\subsection{Température (Eq.14a)}
+    \begin{equation}\label{temperature}
+        {C_v}^*\frac{\partial T^*}{\partial t^*}=(Q^+)^*-(Q^-)^*+(Q_{adv})^*
+    \end{equation}
+    
+\subsection{Terme de chauffage (Eq.14b)}
+    \begin{equation}\label{terme_de_chauffage}
+        (Q^{+})^* = \nu^* (\Omega^*)^2
+    \end{equation}
+    
+\subsection{Terme de refroidissement (Eq.14c)}
+    \begin{equation}\label{terme_de_refroidissement}
+        (Q^-)^* = x \frac{F_z^*}{S^*}
+    \end{equation}
+    
+    \begin{equation}\label{valentin terme de refroidissement}
+      {\color{red}
+        (Q^-)^* =
+        \begin{cases}
+            \frac{2\times 54}{3}\frac{F_z^*}{S^*}x & \text{ si } \tau_{\rm{eff}}^* \geq \frac{2}{\kappa_{ff}^{'} S^{'}}\\
+            \frac{2}{3}\frac{F_z^*}{S^*}\frac{\epsilon_{ff}^{'}r_s}{\dot{M_0}\Omega_{\text{max}}^2}x & \text{ si } \tau_{\rm{eff}}^* < \frac{2}{\kappa_{ff}^{'} S^{'}}
+        \end{cases}
+        }
+    \end{equation}
+    
+\subsection{Terme d'advection (Eq.14d)}
+    \begin{equation}
+        Q_{\rm{adv}}^* = C_V^* \left [ (\Gamma_3 -1) x \frac{T^*}{S^*} \left ( \frac{\partial (S^* /x)}{\partial t^*} + \frac{v^*}{x} \frac{\partial (S^* / x)}{\partial x} \right ) - \frac{v^*}{x} \frac{\partial T^*}{\partial x}  \right]
+    \end{equation}
+    
+    Que l'on réécrit comme
+    \begin{equation}
+                Q_{\rm{adv}}^* = C_V^* \left [ (\Gamma_3 -1) \frac{T^*}{S^*} \left ( \frac{\partial S^* }{\partial t^*} + \frac{v^*}{x} \frac{\partial S^*}{\partial x} \right ) - \frac{v^*}{x} \frac{\partial T^*}{\partial x}  \right]
+    \end{equation}
+    
+    En injectant l'équation \ref{densite_surfacique} dans cette dernière on élimine la dérivée temporelle
+    \begin{equation}\label{terme_advection}
+                Q_{\rm{adv}}^* = \frac{C_V^*}{x} \left [ (\Gamma_3 -1) \frac{T^*}{S^*} \left ( \frac{1}{x} \frac{\partial^2 (\nu^* S^*)}{\partial x^2} + v^* \frac{\partial S^*}{\partial x} \right ) - v^* \frac{\partial T^*}{\partial x}  \right]
+    \end{equation}
+      
+    \begin{equation}\label{advection_valentin}
+      {\color{red}
+      Q_{\rm{adv}}^* = C_V^* \left[ (\Gamma_3 -1) \frac{T^*}{S^*} \left( \frac{1}{x^2} \frac{\partial^2(\nu^* S^*)}{\partial x^2} + v^*\frac{\partial}{\partial x} \left(\frac{S^*}{x}\right) \right) - \frac{v^*}{x} \frac{\partial T^*}{\partial x} \right]
+      }
+    \end{equation}
+      
+    
+\subsection{Capacité calorifique à volume constant (Eq.14e et Eq.14f)}
+    \begin{equation}\label{capacite_calorifique1}
+        C_V^* = \frac{1}{\mu} \frac{12(\gamma_g -1)(1 - \beta) + \beta}{(\gamma_g -1)\beta}
+    \end{equation}
+    \begin{equation}\label{capacite_calorifique2}
+        C_V^* (\Gamma_3 -1) = \frac{1}{\mu} \frac{4 - 3 \beta}{\beta}
+    \end{equation}
+    
+\subsection{Flux radiatif (Eq.15a)}
+    \begin{equation}\label{flux_radiatif}
+        F_z^*=
+        \begin{cases}
+            \frac{a c}{\mathcal{R}^4} \frac{r_s^8\Omega_{max}^6 x}{\dot{M}_0}\frac{(T^*)^4}{S^*(\kappa_{ff}^*+\kappa_e^*)} & \text{ si } \tau_{\rm{eff}}^* \geq 2 \\
+            \epsilon_{ff}^* H^* & \text{ si } \tau_{\rm{eff}}^* < 2
+        \end{cases}
+    \end{equation}
+
+\subsection{Profondeur optique effective (Eq.15b)}
+    \begin{equation}\label{profondeur_optique}
+        \tau_{\rm{eff}}^* =\frac{1}{2} (\kappa_{e}^* \kappa_{ff}^* ) ^{1/2} \frac{S^*}{x}=\frac{1}{2} (\kappa_{e} \kappa_{ff} ) ^{1/2} \frac{S}{x}
+    \end{equation}
+
+\subsection{Opacité Thomson (Eq.15c)}
+Toutes les opacités sont données en $\rm{m^2 kg^{-1}}$
+    \begin{equation}\label{opacite_thomson}
+        \kappa_{e}^* =  0.034 \frac{\dot{M}_0}{r_s^2 \Omega_{\rm{max}}} 
+    \end{equation}
+
+\subsection{Opacité free-free (Eq.15d)}
+    \begin{equation}\label{opacite_free_free}
+        \kappa_{ff}^* =  6.13 \times 10^{21} \frac{{\dot{M}_0}^2{\mathcal{R}}^{7/2}}{\sqrt{3^7}{r_s}^{12}{\Omega_{\rm{max}}}^9}\rho^*{T^*}^{-7/2}
+    \end{equation}
+
+\subsection{Emissivité free-free (Eq.15e)}
+    \begin{equation}\label{emissivite_free_free}
+        \epsilon_{ff}^* = (\rho^*)^2 (T^*)^{1/2}
+    \end{equation}
+
+\subsection{Calcul de $H$ (Eq.30)}
+    \begin{equation}\label{calculH}
+        \frac{1}{2}{\Omega^*}^2S^*H^*=\frac{3}{2\mu}\frac{S^*}{H^*}+\frac{27ax{r_s}^9{\Omega_{\rm{max}}}^7}{{\dot{M}}_0{\mathcal{R}}^4}{T^*}^4
+    \end{equation}
+    \begin{equation}
+        \Longrightarrow {H^*}^2+AH^*+B=0\;\; \textrm{où} \;\;A=-\frac{54ax{r_s}^9{\Omega_{\rm{max}}}^7}{{\dot{M}}_0{\mathcal{R}}^4}\frac{{T^*}^4}{S^*{\Omega^*}^2}\;\; \textrm{et} \;\;B=\frac{3}{\mu{\Omega^*}^2}
+    \end{equation}
+
+
+\end{document}

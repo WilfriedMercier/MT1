@@ -1,0 +1,23 @@
+#Quand on commence à travailler (met à jour le code sur votre ordinateur)
+git pull
+
+#Commande pour commit des modification
+#Toujours vérifer que ça compile avant de commit
+git commit nomFichier
+#Cela ouvre une un éditeur de texte avec le message à saisir
+
+
+#Commande pour uploader votre travail
+#D'abord mettre à jour
+git pull
+
+# Si les conflits sont résolus automatiquement
+git commit
+git push
+
+#Si des conflits à gérer
+git mergetool
+git commit
+git push
+
+#En cas de problème contacter Mathieu

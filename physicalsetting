@@ -1,0 +1,23 @@
+&physicalsetting
+  simulationName = "test"
+  path = "."
+  blackHoleMass = 19.6e30
+  accretionRate0 = 5.0e13
+  rmax = 100
+  tmax = 1e9
+  itmax = 1000
+  nSPaceStep = 200
+  alpha = 1.0
+  chemX = 0.70
+  chemY = 0.28
+  chemZ = 0.02
+  variationAccretionRateInit = 0.5
+  minScaleTemperatureMesh = 1e-2
+  maxScaleTemperatureMesh = 1e4
+  minScaleSigmaMesh = 1e-5
+  maxScaleSigmaMesh = 1e5
+  nTemperatureMesh = 400
+  nSigmaMesh = 400
+  outputMesh = TRUE
+  snapshotFrequency = 10
+/
